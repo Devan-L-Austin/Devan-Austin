@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project 2 on Devan Austin</title>
-    <link>http://localhost:1313/Devan-Austin/projects/project_2/</link>
+    <link>https://devan-l-austin.github.io/Devan-Austin/projects/project_2/</link>
     <description>Recent content in Project 2 on Devan Austin</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/Devan-Austin/projects/project_2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://devan-l-austin.github.io/Devan-Austin/projects/project_2/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
