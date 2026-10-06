@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://devan-l-austin.github.io/Devan-Austin/sitemap.xml
