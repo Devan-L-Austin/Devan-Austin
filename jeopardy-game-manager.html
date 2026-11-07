@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jeopardy Game Manager - Devan Austin</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <a class="site-name" href="./index.html">Devan Austin</a>
+            <nav aria-label="Main navigation">
+                <ul id="navigation-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./projects.html">Projects</a></li>
+                    <li><a href="./resume.html">Resume</a></li>
+                    <li><a href="./about_me.html">About Me</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main_content">
+            <article class="report-content">
+                <p class="eyebrow">Project report</p>
+                <h1>Jeopardy Game Manager</h1>
+                <p class="project-role">Full-Stack Developer</p>
+                <div class="report-images">
+                    <img class="report-img report-img--board" src="./assets/images/JeopardyGameManager/JepBoard.png" alt="Jeopardy game board">
+                    <img class="report-img report-img--home" src="./assets/images/JeopardyGameManager/JepHome.png" alt="Jeopardy Game Manager home screen">
+                </div>
+                <h2>Motivation</h2>
+                <p>&emsp; If you enjoy making and running Jeopardy games as I do, you may have come across tools like JeopardyLabs.com, MultiBuzz.app, etc. These allow you to piece together a workable set-up, but I wanted something better. A single application that allows me to run a game of Jeopardy as similar to the show as possible.</p>
+                <section class="report-placeholder">
+                    <h3>Goals</h3>
+                    <ul>
+                        <li>A single application to display the questions, track scores and handle buzzers.</li>
+                        <li>Stylistically as similar to Jeopardy as possible.</li>
+                        <li>Everyone can particiapte.</li>
+                    </ul>
+                </section>
+                <h2>Tech-Stack</h2>
+                <p>&emsp; I decided to use Electron since my application needed multiple windows with interprocess communication. The front-end was written using React with TypeScript, and the back-end was written in JavaScript.</p>
+                <h2>Buzzers</h2>
+                <p>&emsp; To integrate the buzzer system into the application itself, I decided to run a WebSocket Server within the Electron main process. This allows the mobile app to communicate with the Electron main process. Then the Electron main process can interpret those messages and send commands to the host and board view windows. Here is the code that launches this server.</p>
+                <img class="report-code-image" src="./assets/images/JeopardyGameManager/jepservercode.png" alt="Jeopardy Game Manager WebSocket Server Code.">
+                <p> The buzzers being a part of the main application enabled many features that were essential in creating the most Jeopardy!-like experience. For example, the question reveal.</p>
+
+                <h2>Question Revealing</h2>
+                <p>&emsp; One place existing Jeopardy game managers fell short for me was in their ability to display questions like they would on Jeopardy!. My application creates a question component and animates it to the center of the screen. This question component also has a hidden white border that is revealed once the buzzers are enabled indicating to players that they can buzz to answer.</p>
+                <img class="report-code-image report-code-image--same-height" src="./assets/images/JeopardyGameManager/jepquestioncompcode.png" alt="Jeopardy Game Manager Question Component Code.">
+                <p>This allows the host to read the question as it is being animated to center screen. Additionally since the buzzers are integrated with the main application, the host can also enable the buzzers shortly after finishing reading the question. When this happens the white border will be enabled, see line 15 of the code above. This ensures the fastest reader isn't at an advantage and those who struggle with comprehending the question as it's read aloud to supplement their understanding by reading along. It is also how the question reveal happens on Jeopardy!</p>
+                <h2>Summary</h2>
+                <p>&emsp; During this project I learned a lot about networking basics. I had to deal with race conditions with everyone having a buzzer and I had to implement exponential backoff for attempting reconnections. These are a few of the most important features I added to my Jeopardy game manager, if you'd like to explore the application yourself you can download the latest version below.</p>
+                <div class="report-actions">
+                    <a class="download-button" href="./assets/jeopardy-game-manager%20Setup%201.0.0.exe" download="jeopardy-game-manager Setup 1.0.0.exe">Download Jeopardy Game Manager</a>
+                    <a class="back-link" href="./index.html">← Back to selected projects</a>
+                </div>
+            </article>
+        </main>
+        <footer class="site-footer">
+            <p>&copy; 2026 Devan Austin</p>
+            <address class="footer-contact">
+                <a href="tel:+14252758839">+1 (425)-275-8839</a>
+                <a href="mailto:austin.L.devan@gmail.com">austin.L.devan@gmail.com</a>
+            </address> 
+    </body>
+</html>

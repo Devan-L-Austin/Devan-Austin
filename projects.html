@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Devan Austin - Projects</title>
+        <meta name="description" content="Projects and detailed reports by Devan Austin.">
+        <title>Projects - Devan Austin</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <header>
-            <h1 id="header_child">Devan Austin</h1>
-            <nav id="header_child">
+        <header class="site-header">
+            <a class="site-name" href="./index.html">Devan Austin</a>
+            <nav aria-label="Main navigation">
                 <ul id="navigation-links">
                     <li><a href="./index.html">Home</a></li>
+                    <li><a href="./projects.html" aria-current="page">Projects</a></li>
+                    <li><a href="./resume.html">Resume</a></li>
+                    <li><a href="./about_me.html">About Me</a></li>
                 </ul>
             </nav>
         </header>
-        <h1>Devan Austin's Portfolio Website</h1>
-        <h2>Project 1</h2>
-        <p>Let me tell you about this project.</p>
+        <main id="main_content">
+            <section class="intro" aria-labelledby="page-title">
+                <p class="eyebrow">Selected work</p>
+                <h1 id="page-title">Projects.</h1>
+                <p class="intro-copy">Browse the projects below to see their reports and details.</p>
+            </section>
+            <section class="featured_projects" aria-label="Projects">
+                <a class="project_card" href="./jeopardy-game-manager.html">
+                    <div class="project_card_header">
+                        <div class="project-heading">
+                            <h2>Jeopardy Game Manager</h2>
+                            <p class="project-role">Full-Stack Developer</p>
+                        </div>
+                        <img src="./assets/images/JeopardyGameManager/JeopardyAppIcon.png" alt="Preview of the Jeopardy Game Manager project">
+                    </div>
+                    <!-- Add or remove a list item here to change this project's tags. -->
+                    <ul class="project_tags" aria-label="Project tags">
+                        <li>React</li>
+                        <li>TypeScript</li>
+                        <li>JavaScript</li>
+                        <li>CSS</li>
+                        <li>WebSockets</li>
+                    </ul>
+                    <p class="project_description">A full-stack application for hosting Jeopardy-style games, and a mobile application for participating in said games.</p>
+                    <span class="project-link-label">View project <span aria-hidden="true">↗</span></span>
+                </a>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <p>&copy; 2026 Devan Austin</p>
+            <address class="footer-contact">
+                <a href="tel:+14252758839">+1 (425)-275-8839</a>
+                <a href="mailto:austin.L.devan@gmail.com">austin.L.devan@gmail.com</a>
+            </address>
+        </footer>
     </body>
 </html>

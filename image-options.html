@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Image Options - Devan Austin</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                --page: #092328;
+                --surface: #12544f;
+                --text: #f1f4e9;
+                --muted: #d1dfd0;
+                --accent: #b5d99f;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                min-height: 100vh;
+                margin: 0;
+                background: var(--page);
+                color: var(--text);
+                font-family: "Segoe UI", Tahoma, sans-serif;
+                line-height: 1.55;
+            }
+
+            .preview-header {
+                position: sticky;
+                z-index: 2;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                padding: 14px max(24px, calc((100% - 1080px) / 2));
+                background: var(--page);
+                box-shadow: 0 1px rgb(241 244 233 / 12%);
+            }
+
+            .preview-header a {
+                color: var(--text);
+                font-size: 0.9rem;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            main {
+                width: min(1080px, calc(100% - 40px));
+                margin: 0 auto;
+                padding: 36px 0 64px;
+            }
+
+            .intro {
+                margin-bottom: 30px;
+            }
+
+            .eyebrow {
+                margin: 0 0 8px;
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: clamp(2rem, 5vw, 3rem);
+                letter-spacing: -0.04em;
+                line-height: 1.1;
+            }
+
+            .intro-copy {
+                max-width: 660px;
+                margin: 12px 0 0;
+                color: var(--muted);
+            }
+
+            .option {
+                margin-top: 30px;
+                scroll-margin-top: 75px;
+            }
+
+            .option-heading {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 16px;
+                margin-bottom: 12px;
+            }
+
+            .option-heading h2 {
+                margin: 0;
+                font-size: 1.1rem;
+            }
+
+            .option-heading p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 0.8rem;
+            }
+
+            .project-card {
+                display: flex;
+                width: min(100%, 690px);
+                min-height: 214px;
+                flex-direction: column;
+                padding: 18px;
+                border-radius: 4px;
+                background: var(--surface);
+                box-shadow: 5px 5px 0 rgb(139 187 146 / 28%);
+            }
+
+            .card-header {
+                display: grid;
+                min-height: 100px;
+                grid-template-columns: minmax(0, 1fr) 150px;
+                align-items: center;
+                gap: 18px;
+            }
+
+            .card-title {
+                margin: 0;
+                font-size: 1.4rem;
+                font-weight: 700;
+                letter-spacing: -0.025em;
+                line-height: 1.25;
+            }
+
+            .card-role {
+                margin: 8px 0 0;
+                padding-left: 8px;
+                border-left: 2px solid var(--accent);
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 700;
+                letter-spacing: 0.045em;
+            }
+
+            .card-image {
+                display: block;
+                width: 100%;
+                aspect-ratio: 1;
+                object-fit: contain;
+            }
+
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin: 14px 0 4px;
+                padding: 0;
+                list-style: none;
+            }
+
+            .tags li {
+                padding: 3px 8px;
+                border: 1px solid var(--accent);
+                border-radius: 99px;
+                color: var(--text);
+                font-size: 0.68rem;
+            }
+
+            .description {
+                max-width: 560px;
+                margin: 8px 0 0;
+                color: var(--muted);
+                font-size: 0.84rem;
+            }
+
+            .option--frame .card-image {
+                padding: 10px;
+                border: 1px solid rgb(181 217 159 / 38%);
+                border-radius: 12px;
+                background: #0d393b;
+            }
+
+            .option--badge .card-image {
+                padding: 14px;
+                border: 1px solid rgb(181 217 159 / 58%);
+                border-radius: 22px;
+                background:
+                    radial-gradient(circle at 30% 25%, rgb(181 217 159 / 22%), transparent 68%),
+                    #0d393b;
+                box-shadow: inset 0 0 0 5px rgb(9 35 40 / 45%);
+            }
+
+            .option--banner .project-card {
+                display: grid;
+                grid-template-columns: 180px minmax(0, 1fr);
+                align-items: stretch;
+                gap: 20px;
+            }
+
+            .option--banner .card-image {
+                height: 100%;
+                min-height: 190px;
+                padding: 18px;
+                border-radius: 3px;
+                background:
+                    linear-gradient(145deg, rgb(181 217 159 / 13%), transparent 65%),
+                    #0d393b;
+            }
+
+            .option--banner .card-header {
+                min-height: 0;
+                grid-template-columns: minmax(0, 1fr);
+                align-content: start;
+                gap: 0;
+            }
+
+            .option--banner .tags {
+                margin-top: 16px;
+            }
+
+            .option--banner .description {
+                margin-top: 8px;
+            }
+
+            @media (max-width: 600px) {
+                .preview-header {
+                    padding: 12px 16px;
+                }
+
+                main {
+                    width: calc(100% - 28px);
+                    padding-top: 28px;
+                }
+
+                .option-heading {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 2px;
+                }
+
+                .card-header {
+                    grid-template-columns: minmax(0, 1fr) 110px;
+                    gap: 12px;
+                }
+
+                .project-card {
+                    padding: 14px;
+                }
+
+                .option--banner .project-card {
+                    grid-template-columns: 110px minmax(0, 1fr);
+                    gap: 12px;
+                }
+
+                .option--banner .card-image {
+                    min-height: 150px;
+                    padding: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="preview-header">
+            <a href="./index.html">← Back to portfolio</a>
+            <span class="eyebrow">Project image treatments</span>
+        </header>
+        <main>
+            <section class="intro">
+                <p class="eyebrow">Three visual options</p>
+                <h1>Give the image a place in the card.</h1>
+                <p class="intro-copy">Each sample uses your real Jeopardy icon and current colors. The first two keep the existing card layout; the third makes the image a more prominent side panel.</p>
+            </section>
+
+            <section class="option option--frame" id="inset-frame">
+                <div class="option-heading">
+                    <h2>01 — Recessed frame</h2>
+                    <p>A quiet border and inset padding tie the image into the card.</p>
+                </div>
+                <article class="project-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Jeopardy Game Manager</h3>
+                            <p class="card-role">Full-Stack Developer</p>
+                        </div>
+                        <img class="card-image" src="./assets/images/JeopardyGameManager/JeopardyAppIcon.png" alt="Jeopardy Game Manager app icon">
+                    </div>
+                    <ul class="tags"><li>React</li><li>TypeScript</li><li>WebSockets</li></ul>
+                    <p class="description">A full-stack application for hosting Jeopardy-style games, and a mobile application for participating in said games.</p>
+                </article>
+            </section>
+
+            <section class="option option--badge" id="glow-badge">
+                <div class="option-heading">
+                    <h2>02 — Soft-glow badge</h2>
+                    <p>A rounded, softly lit tile makes the icon feel like a designed app badge.</p>
+                </div>
+                <article class="project-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Jeopardy Game Manager</h3>
+                            <p class="card-role">Full-Stack Developer</p>
+                        </div>
+                        <img class="card-image" src="./assets/images/JeopardyGameManager/JeopardyAppIcon.png" alt="Jeopardy Game Manager app icon">
+                    </div>
+                    <ul class="tags"><li>React</li><li>TypeScript</li><li>WebSockets</li></ul>
+                    <p class="description">A full-stack application for hosting Jeopardy-style games, and a mobile application for participating in said games.</p>
+                </article>
+            </section>
+
+            <section class="option option--banner" id="side-panel">
+                <div class="option-heading">
+                    <h2>03 — Integrated side panel</h2>
+                    <p>A larger image panel gives the project art equal visual weight with the text.</p>
+                </div>
+                <article class="project-card">
+                    <img class="card-image" src="./assets/images/JeopardyGameManager/JeopardyAppIcon.png" alt="Jeopardy Game Manager app icon">
+                    <div>
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Jeopardy Game Manager</h3>
+                                <p class="card-role">Full-Stack Developer</p>
+                            </div>
+                        </div>
+                        <ul class="tags"><li>React</li><li>TypeScript</li><li>WebSockets</li></ul>
+                        <p class="description">A full-stack application for hosting Jeopardy-style games, and a mobile application for participating in said games.</p>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </body>
+</html>
